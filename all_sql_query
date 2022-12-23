@@ -1,1 +1,47 @@
+/* Create, View & Use Databases */  Single line comments start with --
 
+-- Create Database
+
+CREATE DATABASE DEMO;
+
+-- To View or confirm Database 
+
+SHOW DATABASES;
+
+-- To start using database
+
+USE DEMO; 
+
+-- Create Table
+
+CREATE TABLE TEST_1(EID INT, NAME VARCHAR(30), SALARY FLOAT);
+
+-- To View or confirm table
+
+Describe TEST_1;
+DESC TEST_1;
+
+
+
+
+
+
+select count(*) from bank_details
+select * from bank_details
+select age, loan, job, from bank_detials
+select `default` from bank_details
+select * from bank_details limit 10
+select * from bank_details where age = 33
+select * from bank_details where age > 60
+elect * from bank_details where age = 60
+select * from bank_details where age  = 60 and job = 'retired'
+select * from bank_details where education = 'unknown' or marital = 'single'
+select distinct job from bank_details   [ find only jobs available in column]
+select * from bank_details order by age [ arrange age by ascending order ]
+select * from bank_details order by age desc [ arrange age by descending order ]
+
+select sum(balance) as "balance" from bank_details; [find sum of balance]
+select avg(balance) as "balance" from bank_details; [find average of balance]
+select min(balance) as "balance" from bank_details;[find minimum of balance]
+select max(balance) as "balance" from bank_details;[find maximum of balance]
+select * from bank_details where loan = 'yes' [all who have loan]
