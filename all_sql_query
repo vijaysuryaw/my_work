@@ -47,4 +47,11 @@ select max(balance) as "balance" from bank_details;[find maximum of balance]
 select * from bank_details where loan = 'yes' [all who have loan]
 select job, avg(balance) as "balance" from bank_details where job = 'admin.' group by job  [Average balance of Admin]
 select * from bank_details where job = 'unemployed' and age < 45 [Record without job and age less than 45]
+select * from bank_details where education = 'primary' and job = 'unemployed' [ Records whos education primary and person is jobless ]
+select * from bank_details where balance <= 0  [Find record whose balance is negative]
+select housing, education from bank_details where housing = 'no'  [Find record whose not have house and education two columns view ]
+select * from bank_details where balance in (select min(balance) from bank_details) [ To Find minmum balance ]
+select * from bank_details where balance = (select min(balance) MinBalance from bank_details); [ To Find minmum balance ]
+select * from bank_details where balance in  (select max(balance) from bank_details)  [ To Find Maximum balance ]
+
 
