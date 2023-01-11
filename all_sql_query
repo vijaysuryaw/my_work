@@ -293,5 +293,30 @@ SET B = A + 10 ;
 RETURN B ;
 END $$
 
+-- Create Own Function and check the Output
+
+DELIMITER $$
+create function final_profits(profit int, discount int)
+returns int
+Deterministic
+Begin
+Declare final_profit int;
+set final_profit = profit -discount;
+return final_profit;
+end $$
+
+select profit, discount, final_profits(profit, discount) from sales;
+
+-- Create Own Function To Conver Integer to String
+
+DELIMITER &&
+CREATE FUNCTION int_to_str (a int)
+RETURNS VARCHAR(30)
+DETERMINISTIC
+BEGIN
+DECLARE b VARCHAR(30);
+SET b = a;
+RETURN b;
+END &&
 
 
