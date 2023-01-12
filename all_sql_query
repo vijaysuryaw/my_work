@@ -100,6 +100,30 @@ CALL AVG_BAL_JOBROLE1('RETIRED')
 CALL AVG_BAL_JOBROLE1('UNKNOWN')
 
 
+-- Create Procedure If esle condition
+
+DELIMITER &&
+CREATE FUNCTION mark_sales(sales int)
+RETURNS VARCHAR(30)
+DETERMINISTIC
+BEGIN
+DECLARE flag_sales VARCHAR(30);
+IF SALES < 100 THEN
+	SET flag_sales = "super affordable product" ;
+ELSEIF SALES > 100 AND SALES < 300 THEN
+	SET flag_sales = "affordable" ;
+ELSEIF SALES > 300 AND SALES <600 THEN
+	SET flag_sales = "moderate price" ;
+ELSE
+	SET flag_sales = "expensive" ;
+END IF ;
+RETURN 	flag_sales;
+END &&
+    
+    
+select mark_sales1(20)
+
+
 -- Create View
 
 CREATE VIEW BANK_VIEW AS SELECT AGE , JOB , MARITAL , BALANCE , EDUCATION FROM BANK_DETAILS; 
